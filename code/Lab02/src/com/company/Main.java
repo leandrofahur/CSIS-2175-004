@@ -33,9 +33,15 @@ public class Main {
         // shirt.displayData();
 
         // 05:
-        Circle circle = new Circle(1);
-        circle.displayInfo();
-        circle.setRadius(2);
-        circle.displayInfo();
+        // Circle circle = new Circle(1);
+        // circle.displayInfo();
+        // circle.setRadius(2);
+        // circle.displayInfo();
+
+        int a = 0;
+        if(a++ <= 0)
+        {
+            System.out.println(a);
+        }
     }
 }
