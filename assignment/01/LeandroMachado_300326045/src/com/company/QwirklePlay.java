@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class QwirklePlay {
     // Utility:
@@ -15,8 +12,8 @@ public class QwirklePlay {
         // Create the tiles:
         for(int i = 0; i < 3; i++) {
             // test with fixed tile generator to check the compare section below:
-            player.add(new Qwirkle(Qwirkle.Color.Red, Qwirkle.Shape.Square));
-            // player.add(new Qwirkle());
+            // player.add(new Qwirkle(Qwirkle.Color.Red, Qwirkle.Shape.Square));
+            player.add(new Qwirkle());
         }
 
         // Compare the tile by pairs and then generate a new tile if there is copy's.
@@ -46,7 +43,9 @@ public class QwirklePlay {
     }
 
     public static int evaluateScore(List<Qwirkle> player) {
-        int score = 0;
+        int scoreColor = 0;
+        int scoreShape = 0;
+
         List<Integer> colorList = new ArrayList<Integer>();
         List<Integer> shapeList = new ArrayList<Integer>();
         HashSet<Integer> colorHashSet = new HashSet<>();
@@ -62,14 +61,37 @@ public class QwirklePlay {
         colorHashSet.addAll(colorList);
         shapeHashSet.addAll(shapeList);
 
-        for (int i = 0; i < colorHashSet.size(); i++) {
-//            if()
+        if(colorHashSet.size() == 3) {
+            scoreColor = 0;
+        }
+        if(colorHashSet.size() == 2) {
+            scoreColor = 1;
+        }
+        if(colorHashSet.size() == 1) {
+            scoreColor = 2;
         }
 
-        return 0;
+        // System.out.print("\nColor: " + colorHashSet + " " + scoreColor);
+
+        if(shapeHashSet.size() == 3) {
+            scoreShape = 0;
+        }
+        if(shapeHashSet.size() == 2) {
+            scoreShape = 1;
+        }
+        if(shapeHashSet.size() == 1) {
+            scoreShape = 2;
+        }
+
+        // System.out.print("\n\nShape: " + shapeHashSet + " " + scoreShape);
+
+        return scoreColor + scoreShape;
     }
 
     public static void main(String[] args) {
+        int scorePlayer01 = 0;
+        int scorePlayer02 = 0;
+
         // Create a list of Qwirkle to represent player 01 and 02:
         List<Qwirkle> player01 = generatePlayer();
         List<Qwirkle> player02 = generatePlayer();
@@ -78,30 +100,44 @@ public class QwirklePlay {
         comparePlayersTiles(player01,player02);
 
 
-        System.out.println("\nPlayer 01:");
-        for(Qwirkle q : player01) {
-            System.out.println(q.toString());
+        // System.out.println("\nPlayer 01:");
+        // for(Qwirkle q : player01) {
+        //     System.out.println(q.toString());
+        // }
+
+        // System.out.println("\nPlayer 02:");
+        // for(Qwirkle q : player02) {
+        //     System.out.println(q.toString());
+        // }
+
+        System.out.println("Player 1");
+        System.out.println("================================");
+        System.out.println(String.format("%-8s\t%-8s", "Shape", "Colour"));
+        System.out.println("================================\n");
+        for (int i = 0; i < player01.size(); i++) {
+            System.out.println(String.format("%-8s\t%-8s",Qwirkle.Shape.forValue(player01.get(i).getShape()),Qwirkle.Color.forValue(player01.get(i).getColor())));
+        }
+        System.out.println("\nPlayer 2");
+        System.out.println("================================");
+        System.out.println(String.format("%-8s\t%-8s", "Shape", "Colour"));
+        System.out.println("================================\n");
+        for (int i = 0; i < player01.size(); i++) {
+            System.out.println(String.format("%-8s\t%-8s",Qwirkle.Shape.forValue(player02.get(i).getShape()),Qwirkle.Color.forValue(player02.get(i).getColor())));
         }
 
-//        System.out.println("\nPlayer 02:");
-//        for(Qwirkle q : player02) {
-//            System.out.println(q.toString());
-//        }
+        scorePlayer01 = evaluateScore(player01);
+        scorePlayer02 = evaluateScore(player02);
 
-        evaluateScore(player01);
+        if(scorePlayer01 > scorePlayer02) {
+            System.out.println("\nPlayer 1 won with score " + scorePlayer01);
+        }
+
+        if (scorePlayer02 > scorePlayer02) {
+            System.out.println("\nPlayer 2 won with score " + scorePlayer02);
+        }
+
+        if(scorePlayer01 == scorePlayer02) {
+            System.out.println("\nTie with score " + scorePlayer01);
+        }
     }
 }
-
-//        Qwirkle q = new Qwirkle(Qwirkle.Color.Red, Qwirkle.Shape.Square);
-//        Qwirkle qEqual = new Qwirkle(Qwirkle.Color.Red, Qwirkle.Shape.Square);
-//        Qwirkle qR = new Qwirkle();
-//        System.out.println(q.getColor());
-//        System.out.println(q.getShape());
-//        System.out.println(q.toString());
-//        System.out.println();
-//        System.out.println(qR.getColor());
-//        System.out.println(qR.getShape());
-//        System.out.println(qR.toString());
-//
-//        System.out.println(q.isEqual(qR));
-//        System.out.println(q.isEqual(qEqual));

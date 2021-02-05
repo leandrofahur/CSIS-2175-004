@@ -16,6 +16,7 @@ public class Qwirkle {
 
     // The ENUM Class for Color and Shape is intended to help mapping between number and name:
     // i.g., if 1 == Red for color and if 1 == Square for shape.
+    // Inspired by: https://stackoverflow.com/questions/34873224/associate-enum-value-to-integer
     public static enum Color {
         // Mapping between numbers and color names.
         Default(0),
