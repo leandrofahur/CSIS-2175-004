@@ -1,6 +1,20 @@
 package com.company;
 
+import java.util.Comparator;
+
 public class Student {
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getMarks() {
+        return marks;
+    }
+
     private int id;
     private String name;
     private double marks;

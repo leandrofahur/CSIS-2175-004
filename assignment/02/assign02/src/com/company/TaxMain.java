@@ -21,7 +21,7 @@ public class TaxMain {
                 }
             } else {
                 // check if the other characters are numbers:
-                if(!Character.isDigit(sin.charAt(i))) {
+                if(!Character.isDigit(sin.charAt(i)) && sin.charAt(i) != '-') {
                     return true;
                 };
             }
