@@ -62,33 +62,45 @@ public class TaxMain {
         // method to receive input from user:
         Scanner scanner = new Scanner(System.in);
 
-        // Declare the variables and check for sin, zipconde and annual income:
-        String sin;
-        System.out.println("Enter Social Security Number");
-        sin = scanner.next();
-        while(checkSin(sin)) {
-            System.out.println("Enter Social Security Number");
-            sin = scanner.next();
-        }
+        // loop for the user input:
+        String sin = "";
+        Double annualIncome = 0.00;
+        String zipCode = "";
 
-        Double annualIncome;
-        System.out.println("Enter Annual Income");
-        annualIncome = scanner.nextDouble();
-        while(checkAnnualIncome(annualIncome)) {
-            System.out.println("Enter Annual Income");
-            annualIncome = scanner.nextDouble();
-        }
+        int i = 0;
+        do {
+            switch (i) {
+                case 0:
+                    do{
+                        System.out.println("Enter Social Security Number");
+                        sin = scanner.next();
+                    } while (checkSin(sin));
+                    i = 1;
+                    break;
 
-        System.out.println(String.format("%,.2f", annualIncome));
+                case 1:
+                    System.out.println("Enter Annual Income");
+                    annualIncome = scanner.nextDouble();
+                    if(checkAnnualIncome(annualIncome)) {
+                        i = 0;
+                        break;
+                    } else {
+                        i = 2;
+                        break;
+                    }
 
-
-        String zipCode;
-        System.out.println("Enter Zip Code");
-        zipCode = scanner.next();
-        while(checkZip(zipCode)) {
-            System.out.println("Enter Zip Code");
-            zipCode = scanner.next();
-        }
+                case 2:
+                    System.out.println("Enter Zip Code");
+                    zipCode = scanner.next();
+                    if(checkZip(zipCode)) {
+                        i = 0;
+                        break;
+                    } else {
+                        i = 3;
+                        break;
+                    }
+            }
+        } while (i != 3);
 
         String lastName;
         System.out.println("Enter Last Name");
