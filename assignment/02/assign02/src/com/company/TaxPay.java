@@ -63,7 +63,8 @@ public class TaxPay {
                 "Street: %s\n" +
                 "City: %s\n" +
                 "State: %s\n" +
+                "Zip: %s\n" +
                 "Annual Income: %.1f\n" +
-                "Tax: %.1f", this.sin, this.lastName, this.firstName, this.streetAddress, this.city, this.state, this.annualIncome, calculateTaxRate());
+                "Tax: %.1f", this.sin, this.lastName, this.firstName, this.streetAddress, this.city, this.state, this.zipCode, this.annualIncome, calculateTaxRate());
     }
 }

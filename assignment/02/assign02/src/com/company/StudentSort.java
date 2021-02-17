@@ -7,11 +7,12 @@ import java.util.Scanner;
 
 public class StudentSort {
     // Utils: method for sorting:
+    // Thanks to https://www.geeksforgeeks.org/bubble-sort/
     public static Student[] bubleeSort(Student[] arr, String method) {
         if(method == "student") {
             for (int i = 0; i < arr.length; i++) {
                 for (int j = 0; j < arr.length-1; j++) {
-                    if(arr[j].getId() > arr[j+1].getId()) {
+                    if(arr[j].getId() < arr[j+1].getId()) {
                         Student tmp = arr[j];
                         arr[j] = arr[j+1];
                         arr[j+1] = tmp;
@@ -22,7 +23,7 @@ public class StudentSort {
         if(method == "name") {
             for (int i = 0; i < arr.length; i++) {
                 for (int j = 0; j < arr.length-1; j++) {
-                    if(arr[j].getName().charAt(j) > arr[j+1].getName().charAt(j+1)) {
+                    if(arr[j].getName().charAt(j) < arr[j+1].getName().charAt(j)) {
                         Student tmp = arr[j];
                         arr[j] = arr[j+1];
                         arr[j+1] = tmp;
@@ -33,7 +34,7 @@ public class StudentSort {
         if(method == "marks") {
             for (int i = 0; i < arr.length; i++) {
                 for (int j = 0; j < arr.length-1; j++) {
-                    if(arr[j].getMarks() > arr[j+1].getMarks()) {
+                    if(arr[j].getMarks() < arr[j+1].getMarks()) {
                         Student tmp = arr[j];
                         arr[j] = arr[j+1];
                         arr[j+1] = tmp;
@@ -59,6 +60,7 @@ public class StudentSort {
         String name = "";
         double marks = 0.00;
 
+        System.out.println("Enter student data");
         // Loop to add students into the array:
         for(int i = 0; i < numberOfRecords; i++) {
             System.out.println("Enter data for student " + (i+1));
@@ -66,16 +68,22 @@ public class StudentSort {
             System.out.println("Enter student id");
             id = scanner.nextInt();
 
-            System.out.println("Enter student name");
-            name = scanner.next();
-
             System.out.println("Enter student marks");
             marks = scanner.nextDouble();
+
+            System.out.println("Enter student name");
+            name = scanner.next();
 
             Student student = new Student(id, name, marks);
             studentArray[i] = student;
         }
 
+        System.out.println("Information about the student records entered:");
+        for(int i = 0; i < numberOfRecords; i++) {
+            System.out.println(studentArray[i].toString());
+        }
+
+        System.out.println();
         Student[] sortedArray = new Student[numberOfRecords];
         int k = 0;
         do {
