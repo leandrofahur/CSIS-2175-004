@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Retrieving information about the path:
-        Path filePath = Paths.get("//Users//leandro//Desktop//le//douglas_college//CSIS_2175//code//Chapter13//src//com//company//file.txt");
+        Path filePath = Paths.get("//Users//leandro//Desktop//le//douglas_college//CSIS_2175//code//Chapter07//src//Assets//file.txt");
         int count = filePath.getNameCount();
         System.out.println("Path: " + filePath.toString());
 
