@@ -3,11 +3,11 @@ package com.company;
 import java.util.ArrayList;
 
 public class MCQuestion extends Question{
-    private ArrayList<String> options;
-    private String answer;
+    private ArrayList<String> options;  // represents 3-5 options on the question
+    private String answer;              // represents the correct answer (single character)
 
     public MCQuestion() {
-        //...
+        super();
     }
 
     public MCQuestion(String qText, String options, double point) {
@@ -21,6 +21,7 @@ public class MCQuestion extends Question{
         return options;
     }
 
+    // sets the answer for the question out of a list of options:
     public void setOptions(ArrayList<String> options) {
         this.options = options;
     }

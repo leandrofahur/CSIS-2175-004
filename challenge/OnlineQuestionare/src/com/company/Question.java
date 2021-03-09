@@ -1,8 +1,8 @@
 package com.company;
 
 public abstract class Question {
-    private String qText;
-    private double point;
+    private String qText;   // question text
+    private double point;   // value of the question
 
     public Question() {
         // ...
@@ -28,6 +28,8 @@ public abstract class Question {
         this.point = point;
     }
 
+    // return the amount of points of the question if the answer is correct
     public abstract double grade(String answer);
+
     public abstract String getCorrectAnswer();
 }
