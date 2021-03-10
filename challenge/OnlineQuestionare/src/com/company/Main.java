@@ -18,6 +18,7 @@ public class Main {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection connection = DriverManager.getConnection("jdbc:ucanaccess:///Users/leandro/Desktop/le/douglas_college/CSIS_2175/challenge/OnlineQuestionare/src/tables/Question.accdb");
             Statement statement = connection.createStatement();
+            ResultSet resultSet = null;
 
             String ctrl = null;
             String questionType = null;
@@ -25,7 +26,7 @@ public class Main {
             String answer = null;
             ArrayList<String> options = new ArrayList<String>();
             int numOfOptions;
-            double points = 0.0;
+            double point = 0.0;
             do {
                 System.out.print("Please choose (c)reate question, (p)review or (e)xit >> ");
                 ctrl = scanner.next().toLowerCase();
@@ -45,7 +46,16 @@ public class Main {
                             options.add(scanner.nextLine());
                         }
                         System.out.print("How many points? ");
-                        points = scanner.nextDouble();
+                        point = scanner.nextDouble();
+
+                        MCQuestion mcQuestion = new MCQuestion();
+                        mcQuestion.setqText(qText);
+                        mcQuestion.setOptions(options);
+                        mcQuestion.setAnswer(options.get(0));
+                        mcQuestion.setPoint(point);
+
+                        resultSet = statement.executeQuery("INSERT ()")
+
 
                     } else {
                         System.out.print("Enter the question text >> ");
@@ -53,7 +63,7 @@ public class Main {
                         System.out.print("Answer is True or False? ");
                         answer = scanner.next();
                         System.out.print("How many points? ");
-                        points = scanner.nextDouble();
+                        point = scanner.nextDouble();
                     }
                 }
             } while(!ctrl.equals("e"));
