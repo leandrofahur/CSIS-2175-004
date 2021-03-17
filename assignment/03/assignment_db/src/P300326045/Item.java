@@ -6,6 +6,12 @@ public abstract class Item {
     protected Double unitPrice;
     protected Double totalPrice;
 
+    public Item(Integer itemId, String itemName, Double unitPrice) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.unitPrice = unitPrice;
+    }
+
     public abstract Integer getItemId();
 
     public abstract void setItemId(Integer itemId);

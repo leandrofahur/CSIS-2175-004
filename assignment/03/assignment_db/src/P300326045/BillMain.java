@@ -10,6 +10,11 @@ public class BillMain {
         // Solve input:
         Scanner scanner = new Scanner(System.in);
 
+        String name = "";
+        Ontario o = new Ontario();
+        o.setItemName(name);
+
+
         try {
             // Create database connection:
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -29,8 +34,6 @@ public class BillMain {
                 Double price = 0.00;
                 Double totalPrice = 0.00;
                 int numberOfItems = 0;
-                ArrayList<Item> itemArrayListOntario = new ArrayList<>();
-                ArrayList<Item> itemArrayListAlberta = new ArrayList<>();
                 switch (ctrl) {
                     case 1:
                         System.out.println("What is the item name?");
@@ -60,10 +63,10 @@ public class BillMain {
                                 ontario.setItemId(n);
                                 ontario.setUnitPrice(resultSet.getDouble("UnitPrice$"));
                                 System.out.println(ontario);
-                                itemArrayListOntario.add(ontario);
                                 totalPrice += ontario.getTotalPrice();
                             }
                         }
+                        System.out.println("============================");
                         System.out.println("Total Bill: $"+ totalPrice);
                         break;
 
@@ -86,10 +89,10 @@ public class BillMain {
                                 alberta.setItemId(n);
                                 alberta.setUnitPrice(resultSet.getDouble("UnitPrice$"));
                                 System.out.println(alberta);
-                                itemArrayListAlberta.add(alberta);
                                 totalPrice += alberta.getTotalPrice();
                             }
                         }
+                        System.out.println("============================");
                         System.out.println("Total Bill: $"+ totalPrice);
                         break;
                 }
