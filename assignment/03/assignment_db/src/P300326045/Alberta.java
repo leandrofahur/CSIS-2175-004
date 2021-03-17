@@ -1,4 +1,4 @@
-package com.company;
+package P300326045;
 
 public class Alberta extends Item{
     public  Alberta() {
@@ -47,6 +47,6 @@ public class Alberta extends Item{
 
     @Override
     public String toString() {
-        return itemName + " with unit price " + this.unitPrice + " with GST costed " + this.totalPrice;
+        return itemName + " with unit price " + this.unitPrice + " with GST costed " + this.getTotalPrice();
     }
 }

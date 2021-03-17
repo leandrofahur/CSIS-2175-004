@@ -1,4 +1,4 @@
-package com.company;
+package P300326045;
 
 public abstract class Item {
     protected Integer itemId;
