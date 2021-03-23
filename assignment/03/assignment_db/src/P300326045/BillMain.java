@@ -7,22 +7,25 @@ import java.sql.*;
 public class BillMain {
     public static void main(String[] args) {
 
-        // Solve input:
+        // receive user's input:
         Scanner scanner = new Scanner(System.in);
 
+        // initialize
         String name = "";
         Ontario o = new Ontario();
         o.setItemName(name);
 
 
         try {
-            // Create database connection:
+            // create database connection:
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection connection = DriverManager.getConnection("jdbc:ucanaccess:///Users/leandro/Desktop/le/douglas_college/CSIS_2175/assignment/03/assignment_db/Item.accdb");
             Statement statement = connection.createStatement();
             ResultSet resultSet = null;
             String query = "";
 
+            // this variable will control the loop flux. Inside it, will be used by a switch-case, from the do-while
+            // loop perspective, it offers the possibility to end the program:
             int ctrl = 0;
 
             do {
@@ -30,11 +33,14 @@ public class BillMain {
                         "Alberta Store");
                 ctrl = scanner.nextInt();
 
+                // the basics variables that our objects will need:
                 String itemName = "";
                 Double price = 0.00;
                 Double totalPrice = 0.00;
                 int numberOfItems = 0;
+
                 switch (ctrl) {
+                    // in this case we add chocolate, but it is not necessary to:
                     case 1:
                         System.out.println("What is the item name?");
                         itemName = scanner.next();
@@ -43,6 +49,7 @@ public class BillMain {
                         query = "INSERT INTO Item(ItemName, UnitPrice$) VALUES('"+ itemName +"', " + price + " )";
                         statement.executeUpdate(query);
                         break;
+
                     case 2:
                         totalPrice = 0.00;
                         System.out.println("How many items are there in the bill for ontario");
@@ -54,7 +61,6 @@ public class BillMain {
                             System.out.println("Enter quantity of Item " + (i+1));
                             int n = scanner.nextInt();
 
-                            //query = "SELECT UnitPrice$ FROM Item WHERE ItemName=Chocolate";
                             query = "SELECT * FROM Item WHERE `ItemName`='"+itemName+"'";
                             resultSet = statement.executeQuery(query);
                             if(resultSet.next()){

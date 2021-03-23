@@ -1,10 +1,12 @@
 package P300326045;
 
 public class Alberta extends Item{
+    // default constructor needs to call super()
     public  Alberta() {
-    // ...
+        super();
     }
 
+    // implementations for all the getters and setters:
     @Override
     public Integer getItemId() {
         return this.itemId;
@@ -35,6 +37,7 @@ public class Alberta extends Item{
         this.unitPrice = unitPrice;
     }
 
+    // implementation according to specifications:
     @Override
     public Double getTotalPrice() {
         return ( (this.unitPrice * this.itemId) + (this.unitPrice*this.itemId*0.07));
