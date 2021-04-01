@@ -54,6 +54,35 @@ public class RecursionMain {
 
     }
 
+    /*
+     * @Reverse: ABCDEF => FEDCBA
+     * @Input: a string message
+     * @Output: the reversed form of the string message
+     */
+    public static void Reverse(String message) {
+        // Algorithm by induction:
+        // Input msg = ABCD
+        // msg(0) = DBCA
+        // msg(1) = DCBA
+        //
+        // Input msg = ABCDE
+        // msg(0) = EBCDA
+        // msg(1) = EDCBA
+
+        // By induction, the equation can be solved as:
+        // msg(0) = swap(msg(0), msg(n))
+        // msg(1) = swap(msg(1), msg(n-1))
+        // msg(2) = swap(msg(2), msg(n-2))
+        // ...
+        // msg(n) = msg( substring(0, n-1) )
+        if(message.length() <= 1 || message == null) {
+            System.out.println(message);
+        } else {
+            System.out.print(message.charAt(message.length()-1));
+            Reverse(message.substring(0, message.length()-1));
+        }
+    }
+
     // Practice for recursion pdf:
     // Q01:
     public static void Letters(char c) {
@@ -136,5 +165,7 @@ public class RecursionMain {
         for (int i = 0; i < numbers.length; i++) {
             System.out.println(Bears(numbers[i]));
         }
+
+        Reverse("Leandro");
     }
 }
