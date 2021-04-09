@@ -34,6 +34,29 @@ public class MainController implements Initializable {
      * @Description: Methods related to the GUI attributes:
      */
 
+    public void onAddBtnClicked() {
+
+    }
+
+    public void onDeleteBtnClicked() {
+
+    }
+
+    public void onSearchBtnClicked() {
+
+    }
+
+    public void onSaveBtnClicked() {
+
+    }
+
+    public void onDeleteAllBtnClicked() {
+
+    }
+
+    public void onLoadBtnClicked() {
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
