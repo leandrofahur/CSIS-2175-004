@@ -8,15 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
    <children>
-      <Button layoutX="28.0" layoutY="232.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Search">
+      <Button fx:id="searchBtn" layoutX="28.0" layoutY="232.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Search">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TextField layoutX="28.0" layoutY="188.0" prefHeight="29.0" prefWidth="378.0" promptText="Filter">
+      <TextField fx:id="filterTaskTextField" layoutX="28.0" layoutY="188.0" prefHeight="29.0" prefWidth="378.0" promptText="Filter">
          <font>
             <Font size="15.0" />
          </font>
@@ -26,29 +25,34 @@
             <Font size="51.0" />
          </font>
       </Text>
-      <Button layoutX="28.0" layoutY="137.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Add">
+      <Button fx:id="addBtn" layoutX="28.0" layoutY="137.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Add">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <Separator layoutX="117.0" layoutY="289.0" prefWidth="200.0" />
-      <ListView layoutX="28.0" layoutY="311.0" prefHeight="196.0" prefWidth="378.0" />
-      <Button layoutX="289.0" layoutY="522.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Delete All">
+      <ListView fx:id="listView" layoutX="28.0" layoutY="311.0" prefHeight="196.0" prefWidth="378.0" />
+      <Button fx:id="deleteAllBtn" layoutX="289.0" layoutY="522.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Delete All">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="159.0" layoutY="522.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Save">
+      <Button fx:id="saveBtn" layoutX="159.0" layoutY="522.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Save">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TextField layoutX="28.0" layoutY="94.0" prefHeight="29.0" prefWidth="378.0" promptText="Task">
+      <TextField fx:id="taskTextField" layoutX="28.0" layoutY="94.0" prefHeight="29.0" prefWidth="378.0" promptText="Task">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Button layoutX="158.0" layoutY="137.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Delete">
+      <Button fx:id="deleteBtn" layoutX="158.0" layoutY="137.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Delete">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="loadBtn" layoutX="289.0" layoutY="232.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Load">
          <font>
             <Font size="15.0" />
          </font>
