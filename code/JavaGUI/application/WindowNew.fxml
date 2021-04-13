@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.loginController">
+   <top>
+      <TabPane prefHeight="400.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Get Information">
+            <content>
+              <AnchorPane maxHeight="400.0" minWidth="0.0" prefHeight="400.0" prefWidth="400.0">
+                     <children>
+                        <VBox layoutX="112.0" prefHeight="310.0" prefWidth="400.0" AnchorPane.bottomAnchor="-140.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Get Information">
+                                 <VBox.margin>
+                                    <Insets left="150.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <GridPane prefHeight="300.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Name">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="qual" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="Qualification" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin></Label>
+                                    <Label fx:id="mygender" prefHeight="35.0" prefWidth="130.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label prefHeight="35.0" prefWidth="130.0" text="Gender" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin></Label>
+                                    <Label prefHeight="35.0" prefWidth="130.0" text="Date of Birth" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin></Label>
+                                    <Label fx:id="mydob" prefHeight="35.0" prefWidth="130.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Button fx:id="find" mnemonicParsing="false" onAction="#Onfind" text="Find" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="80.0" />
+                                       </GridPane.margin></Button>
+                                    <Button fx:id="myclear" mnemonicParsing="false" onAction="#onmyclear" text="Clear" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="80.0" />
+                                       </GridPane.margin></Button>
+                                    <TextField fx:id="myname" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></TextField>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Put Information">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="112.0" prefHeight="169.6" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Enter Information">
+                                 <VBox.margin>
+                                    <Insets left="150.0" top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <GridPane prefHeight="300.0" prefWidth="400.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="140.19998779296876" minHeight="10.0" prefHeight="13.799989128112799" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="164.0000108718872" minHeight="10.0" prefHeight="53.599972534179706" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="143.20003356933594" minHeight="10.0" prefHeight="30.399984741210943" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="142.40001525878907" minHeight="10.0" prefHeight="46.399996948242176" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="143.20004882812498" minHeight="10.0" prefHeight="143.20004882812498" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Name">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Qualification" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Gender" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Date of Birth" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="sname" GridPane.columnIndex="1" GridPane.vgrow="ALWAYS">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" top="5.0" />
+                                       </GridPane.margin>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </TextField>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <RadioButton fx:id="sgender" mnemonicParsing="false" text="Male">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="Gender" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" selected="true" text="Female" toggleGroup="$Gender" />
+                                       </children>
+                                    </HBox>
+                                    <DatePicker fx:id="sdob" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <ChoiceBox fx:id="qualification" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="add" mnemonicParsing="false" onAction="#onadd" text="Add" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="80.0" />
+                                       </GridPane.margin></Button>
+                                    <Button fx:id="close" mnemonicParsing="false" onAction="#onclose" text="Close" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="80.0" />
+                                       </GridPane.margin></Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </top>
+</BorderPane>
