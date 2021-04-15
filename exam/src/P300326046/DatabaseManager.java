@@ -1,7 +1,6 @@
-package app;
+package P300326046;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class DatabaseManager {
 
@@ -30,7 +29,7 @@ public class DatabaseManager {
     // Close the connection:
     public void CloseDB() throws Exception {
         if(connection!=null) {
-            resultSet.close();
+//            resultSet.close();
             statement.close();
             connection.close();
         }
@@ -43,17 +42,20 @@ public class DatabaseManager {
     public ResultSet QueryMethod(String query) throws SQLException {
         if(query.contains("SELECT")) {
             return statement.executeQuery(query);
+        } else {
+            statement.executeUpdate(query);
+            return null;
         }
-        statement.executeUpdate(query);
-        return null;
     }
 
     /*
      * @Description: Display the table:
      */
     public void DisplayTableFromDB(ResultSet resultSet) throws SQLException {
-        while(this.resultSet.next()) {
-            System.out.println(this.resultSet.getString("StudentName") + "," + this.resultSet.getInt("Age") + "," + this.resultSet.getDouble("Percentage"));
+        if(this.resultSet != null) {
+            while (this.resultSet.next()) {
+                System.out.println(this.resultSet.getString("StudentName"));
+            }
         }
     }
 }
