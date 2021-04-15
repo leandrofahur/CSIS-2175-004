@@ -29,7 +29,6 @@ public class DatabaseManager {
 
     // Close the connection:
     public void CloseDB() throws Exception {
-        System.out.println("fechou!");
         if(connection!=null) {
             resultSet.close();
             statement.close();
@@ -43,12 +42,18 @@ public class DatabaseManager {
 
     public ResultSet QueryMethod(String query) throws SQLException {
         if(query.contains("SELECT")) {
-            System.out.println("Select na Query");
             return statement.executeQuery(query);
         }
-        System.out.println("Sem Select na Query");
         statement.executeUpdate(query);
         return null;
     }
 
+    /*
+     * @Description: Display the table:
+     */
+    public void DisplayTableFromDB(ResultSet resultSet) throws SQLException {
+        while(this.resultSet.next()) {
+            System.out.println(this.resultSet.getString("StudentName") + "," + this.resultSet.getInt("Age") + "," + this.resultSet.getDouble("Percentage"));
+        }
+    }
 }
