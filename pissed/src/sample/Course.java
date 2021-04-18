@@ -1,30 +1,24 @@
 package sample;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Course {
-    private String courseOpted;
-    private int fee;
+    private SimpleStringProperty courseOpted;
+    private SimpleIntegerProperty fee;
 
-    public Course(String courseOpted, int fee) {
-        this.courseOpted = courseOpted;
-        this.fee = fee;
+    public Course(String courseOpted, Integer fee) {
+        this.courseOpted = new SimpleStringProperty(courseOpted);
+        this.fee = new SimpleIntegerProperty(fee);
     }
 
-    public String getCourseOpted() {
+    public StringProperty courseOptedProperty() {
         return courseOpted;
     }
 
-    public void setCourseOpted(String courseOpted) {
-        this.courseOpted = courseOpted;
-    }
-
-    public int getFee() {
+    public IntegerProperty feeProperty() {
         return fee;
-    }
-
-    public void setFee(int fee) {
-        this.fee = fee;
     }
 }

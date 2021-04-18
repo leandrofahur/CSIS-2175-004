@@ -27,6 +27,7 @@ public class MainController implements Initializable {
     private ArrayList<Student> arrayListStudent = new ArrayList<>();
     private ArrayList<FeeCourse> arrayListFeeCourse = new ArrayList<>();
     private ObservableList<String> options;
+    private ObservableList<Course> tbv = FXCollections.observableArrayList();
     private String state;
 
     /*
@@ -47,9 +48,9 @@ public class MainController implements Initializable {
     @FXML private ChoiceBox<String> courseEligibleChoiceBox;
     @FXML private Alert alert;
     @FXML private Button closeBtn;
-    @FXML private TableView tableView;
-    @FXML private TableColumn courseColumn;
-    @FXML private TableColumn feeColumn;
+    @FXML private TableView<Course> tableView;
+    @FXML private TableColumn<Course,String> courseColumn;
+    @FXML private TableColumn<Course, Integer> feeColumn;
 
     /*
      * @Description: Methods for the javafx:
@@ -65,9 +66,10 @@ public class MainController implements Initializable {
         for(int i = 0; i < arrayListFeeCourse.size(); i++) {
             if(arrayListFeeCourse.get(i).getCourse().equals(state)) {
                 Course course = new Course(state,arrayListFeeCourse.get(i).getFee());
-                tableView.getItems().add(course);
+                tbv.add(course);
             }
         }
+        tableView.setItems(tbv);
 
     }
 
@@ -126,11 +128,8 @@ public class MainController implements Initializable {
 
         this.tableView = new TableView();
 
-        this.courseColumn = new TableColumn("Course Opted");
-        this.courseColumn.setCellFactory(new PropertyValueFactory<>("courseOpted"));
-
-        this.feeColumn = new TableColumn("Fee ($)");
-        this.feeColumn.setCellFactory(new PropertyValueFactory<>("fee"));
+        courseColumn.setCellValueFactory(cellData -> cellData.getValue().courseOptedProperty());
+        feeColumn.setCellValueFactory(cellData -> cellData.getValue().feeProperty().asObject());
 
         tableView.getColumns().addAll(courseColumn,feeColumn);
 
